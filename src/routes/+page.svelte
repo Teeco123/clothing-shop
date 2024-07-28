@@ -220,12 +220,14 @@
 						.item-name {
 							display: flex;
 							justify-content: center;
-							width: 60%;
+							width: 65%;
+							font-size: 1.2vw;
 						}
 						.item-price {
 							display: flex;
 							justify-content: center;
-							width: 40%;
+							width: 35%;
+							font-size: 1.2vw;
 						}
 					}
 				}
@@ -243,6 +245,7 @@
 					color: white;
 					letter-spacing: 4px;
 					word-spacing: 8px;
+					font-size: 1vw;
 				}
 				.newsletter-form {
 					display: flex;
