@@ -97,6 +97,15 @@
 			<a href="/"><enhanced:img src="/static/facebook.png" /></a>
 			<a href="/"><enhanced:img src="/static/twitter.png" /></a>
 		</div>
+		<div class="other-links">
+			<div class="links">
+				<a href="/">GIGA SKLEP HUJ 2024 ©</a>
+				<a href="/">Contact</a>
+				<a href="/">Terms and conditions</a>
+				<a href="/">Privacy policy</a>
+				<a href="/">Shipping policy</a>
+			</div>
+		</div>
 	</div>
 </body>
 
@@ -223,7 +232,7 @@
 			}
 		}
 		.footer {
-			height: 280px;
+			height: calc(300px - 1%);
 			border-top: 1px rgb(20, 20, 20) solid;
 			padding: 40px 0px 20px;
 			.newsletter {
@@ -270,12 +279,25 @@
 				a {
 					display: flex;
 					align-items: center;
-					width: 2%;
-					margin: 0 1%;
+					width: 32px;
+					margin: 0 12px;
 					img {
 						height: 100%;
 						width: 100%;
 						filter: invert(100%);
+					}
+				}
+			}
+			.other-links {
+				border-top: 1px rgb(120, 120, 120) solid;
+				margin: 24px 24px 0px;
+				.links {
+					margin-top: 24px;
+					a {
+						font-size: 1em;
+						margin-right: 12px;
+						text-decoration: none;
+						color: white;
 					}
 				}
 			}
