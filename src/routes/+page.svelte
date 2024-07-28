@@ -92,6 +92,11 @@
 				<button type="submit">Join</button>
 			</form>
 		</div>
+		<div class="socials">
+			<a href="/"><enhanced:img src="/static/instagram.png" /></a>
+			<a href="/"><enhanced:img src="/static/facebook.png" /></a>
+			<a href="/"><enhanced:img src="/static/twitter.png" /></a>
+		</div>
 	</div>
 </body>
 
@@ -256,6 +261,21 @@
 						&:hover {
 							cursor: pointer;
 						}
+					}
+				}
+			}
+			.socials {
+				display: flex;
+				justify-content: center;
+				a {
+					display: flex;
+					align-items: center;
+					width: 2%;
+					margin: 0 1%;
+					img {
+						height: 100%;
+						width: 100%;
+						filter: invert(100%);
 					}
 				}
 			}
