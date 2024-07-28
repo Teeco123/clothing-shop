@@ -25,6 +25,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"aos": "^2.3.4",
 		"sass": "^1.77.8"
 	}
 }
