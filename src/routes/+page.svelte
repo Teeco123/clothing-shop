@@ -1,31 +1,50 @@
+<script lang="ts">
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let load = false;
+
+	onMount(() => {
+		load = true;
+	});
+</script>
+
 <body>
 	<div class="header">
 		<div class="nav">
-			<a href="/">HUJ</a>
-			<a href="/">GOWNO</a>
-			<a href="/">DUPA</a>
-			<a href="/">CIPA</a>
+			{#if load}
+				<a href="/" transition:fade={{ delay: 250, duration: 500 }}>HUJ</a>
+				<a href="/" transition:fade={{ delay: 250, duration: 500 }}>GOWNO</a>
+				<a href="/" transition:fade={{ delay: 250, duration: 500 }}>DUPA</a>
+				<a href="/" transition:fade={{ delay: 250, duration: 500 }}>CIPA</a>
+			{/if}
 		</div>
-		<div class="logo">GOWNO</div>
+		{#if load}
+			<div class="logo" transition:fade={{ delay: 250, duration: 500 }}>GOWNO</div>
+		{/if}
 		<div class="menu">
-			<div class="search">
-				<enhanced:img class="img" src="/static/search.png" />
-			</div>
-			<div class="profile">
-				<enhanced:img class="img" src="/static/profile.png" />
-			</div>
-			<div class="bag">
-				<enhanced:img class="img" src="/static/shopping_bag.png" />
-			</div>
+			{#if load}
+				<div class="search" transition:fade={{ delay: 250, duration: 500 }}>
+					<enhanced:img class="img" src="/static/search.png" alt="search" />
+				</div>
+				<div class="profile" transition:fade={{ delay: 250, duration: 500 }}>
+					<enhanced:img class="img" src="/static/profile.png" alt="profile" />
+				</div>
+				<div class="bag" transition:fade={{ delay: 250, duration: 500 }}>
+					<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
+				</div>
+			{/if}
 		</div>
 	</div></body
 >
 
 <style lang="scss">
 	@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 	body {
 		margin: 0;
 		background-color: grey;
+		font-family: Jost;
 		.header {
 			display: flex;
 			align-items: center;
@@ -58,7 +77,7 @@
 					display: flex;
 					align-items: center;
 					width: 5%;
-					margin: 0 5%;
+					margin: 0 3%;
 					.img {
 						width: 100%;
 						height: 100%;
@@ -68,7 +87,7 @@
 					display: flex;
 					align-items: center;
 					width: 5%;
-					margin: 0 5%;
+					margin: 0 3%;
 					.img {
 						width: 100%;
 						height: 100%;
@@ -78,7 +97,7 @@
 					display: flex;
 					align-items: center;
 					width: 5%;
-					margin: 0 2%;
+					margin: 0 3%;
 					.img {
 						width: 100%;
 						height: 100%;
