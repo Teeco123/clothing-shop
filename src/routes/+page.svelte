@@ -255,7 +255,8 @@
 					input {
 						border: 1px rgb(60, 60, 60) solid;
 						background-color: black;
-						width: 280px;
+						width: 20vw;
+						max-width: 15vw;
 						height: calc(48px - 24px);
 						padding: 12px;
 						color: rgb(222, 222, 222);
