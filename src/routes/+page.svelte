@@ -75,6 +75,22 @@
 					<div class="item-price">69 ZŁ</div>
 				</div>
 			</div>
+			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
+				<div class="item-img"><div class="fake-img"></div></div>
+				<div class="item-info">
+					<div class="item-name">GIGA KURTKA KURWA</div>
+					<div class="item-price">69 ZŁ</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="newsletter">
+			<div class="newsletter-text">Signup for newsletter</div>
+			<form class="newsletter-form">
+				<input type="text" placeholder="Email address" />
+				<button type="submit">Join</button>
+			</form>
 		</div>
 	</div>
 </body>
@@ -164,8 +180,8 @@
 			.items-grid {
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
-				grid-gap: 5%;
-				margin: 5% 10%;
+				grid-gap: 4% 2%;
+				margin: 5% 10% 8%;
 				.item {
 					display: flex;
 					flex-direction: column;
@@ -196,6 +212,49 @@
 							display: flex;
 							justify-content: center;
 							width: 40%;
+						}
+					}
+				}
+			}
+		}
+		.footer {
+			height: 280px;
+			border-top: 1px rgb(20, 20, 20) solid;
+			padding: 40px 0px 20px;
+			.newsletter {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				.newsletter-text {
+					color: white;
+					letter-spacing: 4px;
+					word-spacing: 8px;
+				}
+				.newsletter-form {
+					display: flex;
+					justify-content: center;
+					margin: 2%;
+					width: 100%;
+					input {
+						border: 1px rgb(60, 60, 60) solid;
+						background-color: black;
+						width: 280px;
+						height: calc(48px - 24px);
+						padding: 12px;
+						color: rgb(222, 222, 222);
+						&:focus-visible {
+							outline: none;
+						}
+					}
+					button {
+						border: 1px rgb(60, 60, 60) solid;
+						background-color: black;
+						margin: 0% 1%;
+						width: 48px;
+						height: 48px;
+						color: rgb(222, 222, 222);
+						&:hover {
+							cursor: pointer;
 						}
 					}
 				}
