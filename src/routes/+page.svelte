@@ -427,13 +427,12 @@
 				.newsletter-form {
 					display: flex;
 					justify-content: center;
-					margin: 2%;
+					margin: 2% 2% 24px;
 					width: 100%;
 					input {
 						border: 1px rgb(60, 60, 60) solid;
 						background-color: black;
-						width: 20vw;
-						max-width: 15vw;
+						width: 15vw;
 						height: calc(48px - 24px);
 						padding: 12px;
 						color: rgb(222, 222, 222);
@@ -512,6 +511,18 @@
 					}
 				}
 			}
+			.footer {
+				.newsletter {
+					.newsletter-text {
+						font-size: 2.5vw;
+					}
+					.newsletter-form {
+						input {
+							width: 40vw;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -529,6 +540,18 @@
 							.item-price {
 								font-size: 3.5vw;
 							}
+						}
+					}
+				}
+			}
+			.footer {
+				.newsletter {
+					.newsletter-text {
+						font-size: 3.5vw;
+					}
+					.newsletter-form {
+						input {
+							width: 50vw;
 						}
 					}
 				}
