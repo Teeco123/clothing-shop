@@ -372,7 +372,7 @@
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
 				grid-gap: 4% 2%;
-				margin: 5% 10% 8%;
+				margin: 5vh 10% 13vh;
 				.item {
 					display: flex;
 					flex-direction: column;
@@ -493,6 +493,44 @@
 				}
 				.header-mobile {
 					display: flex;
+				}
+			}
+			.main {
+				.items-grid {
+					grid-gap: 2% 2%;
+					margin: 5vh 10% 10vh;
+					grid-template-columns: repeat(2, 1fr);
+					.item {
+						.item-info {
+							.item-name {
+								font-size: 2vw;
+							}
+							.item-price {
+								font-size: 2vw;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 425px) {
+		body {
+			.main {
+				.items-grid {
+					margin: 5vh 10% 45vh;
+					grid-template-columns: repeat(1, 1fr);
+					.item {
+						.item-info {
+							.item-name {
+								font-size: 3.5vw;
+							}
+							.item-price {
+								font-size: 3.5vw;
+							}
+						}
+					}
 				}
 			}
 		}
