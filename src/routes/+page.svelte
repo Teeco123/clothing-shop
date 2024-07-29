@@ -113,9 +113,15 @@
 			</form>
 		</div>
 		<div class="socials">
-			<a href="/"><enhanced:img class="socials-img" src="/static/instagram.png" /></a>
-			<a href="/"><enhanced:img class="socials-img" src="/static/facebook.png" /></a>
-			<a href="/"><enhanced:img class="socials-img" src="/static/twitter.png" /></a>
+			<a href="/">
+				<enhanced:img class="socials-img" src="/static/instagram.png" alt="instagram" />
+			</a>
+			<a href="/">
+				<enhanced:img class="socials-img" src="/static/facebook.png" alt="facebook" />
+			</a>
+			<a href="/">
+				<enhanced:img class="socials-img" src="/static/twitter.png" alt="twitter" />
+			</a>
 		</div>
 		<div class="other-links">
 			<div class="links">
