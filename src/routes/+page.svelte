@@ -3,6 +3,14 @@
 	import 'aos/dist/aos.css';
 	import AOS from 'aos';
 
+	let mobileNav: HTMLElement;
+
+	function OpenMenu() {
+		window.document.body.style.overflow = 'hidden';
+		mobileNav.style.display = 'block';
+		mobileNav.style.width = '100vw';
+	}
+
 	onMount(() => {
 		AOS.init({
 			duration: 1500
@@ -12,6 +20,7 @@
 
 <body>
 	<div class="wrapper">
+		<div class="mobile-nav" bind:this={mobileNav}></div>
 		<div class="header-desktop">
 			<div class="nav">
 				<a data-aos="fade-in" href="/">HUJ</a>
@@ -33,7 +42,7 @@
 			</div>
 		</div>
 		<div class="header-mobile">
-			<button class="nav-button-wrapper">
+			<button class="nav-button-wrapper" on:click={OpenMenu}>
 				<div class="nav-button-img">
 					<enhanced:img class="img" src="/static/menu.png" alt="menu button" />
 				</div>
@@ -127,6 +136,18 @@
 		margin: 0;
 		background-color: black;
 		font-family: Jost;
+		.mobile-nav {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: rgb(0, 0, 0);
+			background-color: rgba(0, 0, 0, 0.95);
+			overflow-x: hidden;
+			transition: 0.5s;
+		}
 		.wrapper {
 			height: 100vh;
 			.header-desktop {
