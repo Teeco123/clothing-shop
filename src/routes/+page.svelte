@@ -12,16 +12,14 @@
 
 <body>
 	<div class="wrapper">
-		<div class="header">
+		<div class="header-desktop">
 			<div class="nav">
 				<a data-aos="fade-in" href="/">HUJ</a>
 				<a data-aos="fade-in" href="/">GOWNO</a>
 				<a data-aos="fade-in" href="/">DUPA</a>
 				<a data-aos="fade-in" href="/">CIPA</a>
 			</div>
-
 			<div data-aos="fade-in" class="logo">GOWNO</div>
-
 			<div class="menu">
 				<div data-aos="fade-in" class="search">
 					<enhanced:img class="img" src="/static/search.png" alt="search" />
@@ -29,6 +27,19 @@
 				<div data-aos="fade-in" class="profile">
 					<enhanced:img class="img" src="/static/profile.png" alt="profile" />
 				</div>
+				<div data-aos="fade-in" class="bag">
+					<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
+				</div>
+			</div>
+		</div>
+		<div class="header-mobile">
+			<button class="nav-button-wrapper">
+				<div class="nav-button-img">
+					<enhanced:img class="img" src="/static/menu.png" alt="menu button" />
+				</div>
+			</button>
+			<div data-aos="fade-in" class="logo">GOWNO</div>
+			<div class="menu">
 				<div data-aos="fade-in" class="bag">
 					<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
 				</div>
@@ -93,9 +104,9 @@
 			</form>
 		</div>
 		<div class="socials">
-			<a href="/"><enhanced:img src="/static/instagram.png" /></a>
-			<a href="/"><enhanced:img src="/static/facebook.png" /></a>
-			<a href="/"><enhanced:img src="/static/twitter.png" /></a>
+			<a href="/"><enhanced:img class="socials-img" src="/static/instagram.png" /></a>
+			<a href="/"><enhanced:img class="socials-img" src="/static/facebook.png" /></a>
+			<a href="/"><enhanced:img class="socials-img" src="/static/twitter.png" /></a>
 		</div>
 		<div class="other-links">
 			<div class="links">
@@ -118,7 +129,7 @@
 		font-family: Jost;
 		.wrapper {
 			height: 100vh;
-			.header {
+			.header-desktop {
 				position: sticky;
 				display: flex;
 				align-items: center;
@@ -172,6 +183,53 @@
 						align-items: center;
 						width: 5%;
 						margin: 0 3%;
+						.img {
+							width: 100%;
+							height: 100%;
+						}
+					}
+				}
+			}
+			.header-mobile {
+				position: sticky;
+				display: none;
+				align-items: center;
+				justify-content: space-between;
+				background-color: black;
+				height: 180px;
+				color: white;
+				.nav-button-wrapper {
+					display: flex;
+					margin-left: 2%;
+					width: 100%;
+					border: none;
+					background-color: black;
+					.nav-button-img {
+						display: flex;
+						align-items: center;
+						width: 20%;
+						margin: 0 20%;
+						.img {
+							height: 100%;
+							width: 100%;
+						}
+					}
+				}
+				.logo {
+					display: flex;
+					justify-content: center;
+					width: 100%;
+				}
+				.menu {
+					display: flex;
+					justify-content: flex-end;
+					margin-right: 2%;
+					width: 100%;
+					.bag {
+						display: flex;
+						align-items: center;
+						width: 20%;
+						margin: 0 20%;
 						.img {
 							width: 100%;
 							height: 100%;
@@ -285,7 +343,7 @@
 					align-items: center;
 					width: 32px;
 					margin: 0 12px;
-					img {
+					.socials-img {
 						height: 100%;
 						width: 100%;
 						filter: invert(100%);
@@ -303,6 +361,19 @@
 						text-decoration: none;
 						color: white;
 					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		body {
+			.wrapper {
+				.header-desktop {
+					display: none;
+				}
+				.header-mobile {
+					display: flex;
 				}
 			}
 		}
