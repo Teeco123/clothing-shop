@@ -530,7 +530,7 @@
 		body {
 			.main {
 				.items-grid {
-					margin: 5vh 10% 45vh;
+					margin: 5vh 10% 40vh;
 					grid-template-columns: repeat(1, 1fr);
 					.item {
 						.item-info {
