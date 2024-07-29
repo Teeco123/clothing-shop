@@ -7,8 +7,12 @@
 
 	function OpenMenu() {
 		window.document.body.style.overflow = 'hidden';
-		mobileNav.style.display = 'block';
 		mobileNav.style.width = '100vw';
+	}
+
+	function CloseMenu() {
+		window.document.body.style.overflow = 'auto';
+		mobileNav.style.width = '0vw';
 	}
 
 	onMount(() => {
@@ -20,7 +24,26 @@
 
 <body>
 	<div class="wrapper">
-		<div class="mobile-nav" bind:this={mobileNav}></div>
+		<div class="mobile-nav" bind:this={mobileNav}>
+			<div class="top-item">
+				<div class="profile">
+					<enhanced:img class="img" src="/static/profile.png" alt="profile" />
+				</div>
+				<button class="close" on:click={CloseMenu}>
+					<enhanced:img class="img" src="/static/close.png" alt="close" />
+				</button>
+			</div>
+			<div class="middle-item"><a href="/">HUJ</a></div>
+			<div class="middle-item"><a href="/">GOWNO</a></div>
+			<div class="middle-item"><a href="/">DUPA</a></div>
+			<div class="middle-item"><a href="/">CIPA</a></div>
+			<div class="search-box">
+				<div class="search-img">
+					<enhanced:img class="img" src="/static/search.png" alt="search" />
+				</div>
+				<input type="text" placeholder="Search" />
+			</div>
+		</div>
 		<div class="header-desktop">
 			<div class="nav">
 				<a data-aos="fade-in" href="/">HUJ</a>
@@ -143,16 +166,85 @@
 		background-color: black;
 		font-family: Jost;
 		.mobile-nav {
+			display: flex;
+			flex-direction: column;
 			height: 100%;
-			width: 0;
+			width: 0vw;
 			position: fixed;
 			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: rgb(0, 0, 0);
 			background-color: rgba(0, 0, 0, 0.95);
 			overflow-x: hidden;
 			transition: 0.5s;
+			.top-item {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				justify-content: space-between;
+				border-bottom: 1px rgb(60, 60, 60) solid;
+				.profile {
+					display: flex;
+					align-items: center;
+					width: 32px;
+					margin: 16px;
+					.img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.close {
+					display: flex;
+					align-items: center;
+					width: 32px;
+					margin: 16px;
+					border: none;
+					background-color: rgba(0, 0, 0, 0.95);
+					padding: 0;
+					.img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+			.middle-item {
+				display: flex;
+				border-bottom: 1px rgb(60, 60, 60) solid;
+				a {
+					color: white;
+					margin: 0px 22px;
+					padding: 16px 0px;
+					text-decoration: none;
+				}
+			}
+			.search-box {
+				display: flex;
+				width: 100%;
+				border-bottom: 1px rgb(60, 60, 60) solid;
+				.search-img {
+					display: flex;
+					align-items: center;
+					width: 32px;
+					padding: 16px;
+					border-right: 1px rgb(60, 60, 60) solid;
+					.img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				input {
+					width: calc(100% - 64px - 16px);
+					border: none;
+					background: transparent;
+					color: white;
+					padding-left: 16px;
+					&:focus-within {
+						outline: none;
+					}
+					&::placeholder {
+						font-family: Jost;
+						color: white;
+					}
+				}
+			}
 		}
 		.wrapper {
 			height: 100vh;
