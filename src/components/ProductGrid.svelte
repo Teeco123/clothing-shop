@@ -7,7 +7,7 @@
 <div class="items-grid">
 	{#each products as product}
 		<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-			<div class="item-img"><div class="fake-img"></div></div>
+			<div class="item-img"><div class="fake-img" /></div>
 			<div class="item-info">
 				<div class="item-name">{product.name}</div>
 				{#if product.quantity > 0}
