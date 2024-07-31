@@ -29,7 +29,11 @@
 					<div class="item-img"><div class="fake-img"></div></div>
 					<div class="item-info">
 						<div class="item-name">{product.name}</div>
-						<div class="item-price">{product.price} ZŁ</div>
+						{#if product.quantity > 0}
+							<div class="item-price">{product.price} ZŁ</div>
+						{:else}
+							<div class="out-of-stock">Out of stock</div>
+						{/if}
 					</div>
 				</div>
 			{/each}
@@ -80,13 +84,19 @@
 						.item-name {
 							display: flex;
 							justify-content: center;
-							width: 65%;
+							width: 50%;
 							font-size: 1.2vw;
 						}
 						.item-price {
 							display: flex;
 							justify-content: center;
-							width: 35%;
+							width: 40%;
+							font-size: 1.2vw;
+						}
+						.out-of-stock {
+							display: flex;
+							justify-content: center;
+							width: 50%;
 							font-size: 1.2vw;
 						}
 					}
@@ -115,6 +125,9 @@
 							.item-price {
 								font-size: 2vw;
 							}
+							.out-of-stock {
+								font-size: 2vw;
+							}
 						}
 					}
 				}
@@ -134,6 +147,10 @@
 								font-size: 3.5vw;
 							}
 							.item-price {
+								font-size: 3.5vw;
+							}
+
+							.out-of-stock {
 								font-size: 3.5vw;
 							}
 						}
