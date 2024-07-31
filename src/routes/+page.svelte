@@ -25,9 +25,8 @@
 	<div class="main">
 		<ProductGrid {data} />
 	</div>
-	<div class="footer">
-		<Footer />
-	</div>
+
+	<Footer />
 </body>
 
 <style lang="scss">
@@ -39,11 +38,6 @@
 		font-family: Jost;
 		.wrapper {
 			height: 100vh;
-		}
-		.footer {
-			height: calc(300px - 1%);
-			border-top: 1px rgb(20, 20, 20) solid;
-			padding: 40px 0px 20px;
 		}
 	}
 </style>
