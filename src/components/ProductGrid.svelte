@@ -6,7 +6,13 @@
 
 <div class="items-grid">
 	{#each products as product}
-		<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
+		<a
+			href="/product/{product.name}"
+			data-aos="fade-down"
+			data-aos-duration="400"
+			data-aos-once="true"
+			class="item"
+		>
 			<div class="item-img"><div class="fake-img" /></div>
 			<div class="item-info">
 				<div class="item-name">{product.name}</div>
@@ -16,7 +22,7 @@
 					<div class="out-of-stock">Out of stock</div>
 				{/if}
 			</div>
-		</div>
+		</a>
 	{/each}
 </div>
 
@@ -32,6 +38,7 @@
 			justify-content: center;
 			box-sizing: border-box;
 			color: white;
+			text-decoration: none;
 			.item-img {
 				aspect-ratio: 414 / 572;
 				.fake-img {
