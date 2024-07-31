@@ -16,7 +16,7 @@
 			<div class="item-img"><div class="fake-img" /></div>
 			<div class="item-info">
 				<div class="item-name">{product.name}</div>
-				{#if product.quantity > 0}
+				{#if product.totalQuantity > 0}
 					<div class="item-price">{product.price} ZŁ</div>
 				{:else}
 					<div class="out-of-stock">Out of stock</div>
