@@ -3,6 +3,7 @@
 	import 'aos/dist/aos.css';
 	import AOS from 'aos';
 	import Header from '../components/Header.svelte';
+	import BigImg from '../components/BigIMG.svelte';
 
 	onMount(() => {
 		AOS.init({
@@ -14,9 +15,7 @@
 <body>
 	<div class="wrapper">
 		<Header />
-		<div data-aos="fade-down" data-aos-duration="300" data-aos-once="true" class="big-img-wrapper">
-			<enhanced:img class="big-img" src="/static/cartman.png" alt="cartman" />
-		</div>
+		<BigImg />
 	</div>
 	<div class="main">
 		<div class="items-grid">
@@ -104,16 +103,6 @@
 		font-family: Jost;
 		.wrapper {
 			height: 100vh;
-			.big-img-wrapper {
-				height: calc(100vh - 180px);
-				box-sizing: border-box;
-				.big-img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					background-color: gray;
-				}
-			}
 		}
 		.main {
 			.items-grid {
