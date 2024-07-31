@@ -6,6 +6,10 @@
 	import BigImg from '../components/BigIMG.svelte';
 	import Footer from '../components/Footer.svelte';
 
+	export let data;
+
+	$: ({ products } = data);
+
 	onMount(() => {
 		AOS.init({
 			duration: 1500
@@ -20,48 +24,15 @@
 	</div>
 	<div class="main">
 		<div class="items-grid">
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
+			{#each products as product}
+				<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
+					<div class="item-img"><div class="fake-img"></div></div>
+					<div class="item-info">
+						<div class="item-name">{product.name}</div>
+						<div class="item-price">{product.price} ZŁ</div>
+					</div>
 				</div>
-			</div>
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
-				</div>
-			</div>
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
-				</div>
-			</div>
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
-				</div>
-			</div>
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
-				</div>
-			</div>
-			<div data-aos="fade-down" data-aos-duration="400" data-aos-once="true" class="item">
-				<div class="item-img"><div class="fake-img"></div></div>
-				<div class="item-info">
-					<div class="item-name">GIGA KURTKA KURWA</div>
-					<div class="item-price">69 ZŁ</div>
-				</div>
-			</div>
+			{/each}
 		</div>
 	</div>
 	<div class="footer">
