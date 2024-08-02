@@ -32,6 +32,7 @@
 					{/each}
 				</div>
 			</div>
+			<button class="add-to-cart">Add to cart</button>
 		</div>
 		<div class="product-images"></div>
 	{/each}
@@ -55,7 +56,7 @@
 				margin: 16px;
 			}
 			.sizes {
-				margin: 42px 16px;
+				margin: 42px 16px 16px;
 				.sizes-buttons {
 					display: grid;
 					grid-template-columns: repeat(6, 72px);
@@ -72,9 +73,10 @@
 							width: 100%;
 							height: 100%;
 							border: 1px white solid;
+							transition: 0.5s;
 							&:hover {
 								cursor: pointer;
-								background-color: rgb(15, 15, 15);
+								background-color: rgb(25, 25, 25);
 							}
 						}
 						input[type='radio'] {
@@ -88,6 +90,22 @@
 							color: black;
 						}
 					}
+				}
+			}
+			.add-to-cart {
+				margin: 16px;
+				border: 1px white solid;
+				height: 36px;
+				width: calc((6 * 72px) + (5 * 12px));
+				color: black;
+				background-color: white;
+				font-weight: bold;
+				font-size: 14px;
+				transition: 0.3s;
+				&:hover {
+					cursor: pointer;
+					color: white;
+					background-color: black;
 				}
 			}
 		}
