@@ -225,7 +225,8 @@
 					.product-name,
 					.product-price,
 					.sizes,
-					.cart-wrapper {
+					.cart-wrapper,
+					.product-description {
 						margin-left: 5%;
 					}
 				}
@@ -246,6 +247,15 @@
 					}
 					.product-price {
 						font-size: 6vw;
+					}
+					.product-description {
+						min-width: calc((3 * 72px) + (2 * 12px));
+						.title {
+							min-width: 100%;
+						}
+						.description {
+							min-width: 100%;
+						}
 					}
 					.sizes {
 						.sizes-buttons {
