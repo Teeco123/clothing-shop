@@ -45,7 +45,7 @@
 		<a data-aos="fade-in" href="/">DUPA</a>
 		<a data-aos="fade-in" href="/">CIPA</a>
 	</div>
-	<div data-aos="fade-in" class="logo">GOWNO</div>
+	<a href="/" data-aos="fade-in" class="logo">GOWNO</a>
 	<div class="menu">
 		<div data-aos="fade-in" class="search">
 			<enhanced:img class="img" src="/static/search.png" alt="search" />
@@ -64,7 +64,7 @@
 			<enhanced:img class="img" src="/static/menu.png" alt="menu button" />
 		</div>
 	</button>
-	<div data-aos="fade-in" class="logo">GOWNO</div>
+	<a href="/" data-aos="fade-in" class="logo">GOWNO</a>
 	<div class="menu">
 		<div data-aos="fade-in" class="bag">
 			<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
@@ -177,6 +177,8 @@
 			display: flex;
 			justify-content: center;
 			width: 100%;
+			color: white;
+			text-decoration: none;
 		}
 		.menu {
 			display: flex;
@@ -244,6 +246,8 @@
 			display: flex;
 			justify-content: center;
 			width: 100%;
+			color: white;
+			text-decoration: none;
 		}
 		.menu {
 			display: flex;
