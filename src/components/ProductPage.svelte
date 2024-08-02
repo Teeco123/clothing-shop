@@ -40,6 +40,21 @@
 				<div class="cart-wrapper">
 					<button class="add-to-cart">Add to cart</button>
 				</div>
+				<div class="product-description">
+					<div class="title">Product description</div>
+					<div class="description">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lectus mauris, pulvinar ut
+						mauris nec, gravida faucibus justo. Cras fringilla urna non dapibus tristique. Sed ut
+						aliquam augue. Nulla fermentum augue at dolor vehicula mattis. Ut tincidunt massa leo,
+						at accumsan massa dignissim eget. Pellentesque habitant morbi tristique senectus et
+						netus et malesuada fames ac turpis egestas.
+						<br /><br />
+						- Boxy fit sherpa jacket<br />
+						- Funnel neck<br />
+						- Branded ¼ zip closure<br />
+						- Fully lined<br />
+					</div>
+				</div>
 			</div>
 			<div class="product-images">
 				<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
@@ -150,6 +165,22 @@
 							color: white;
 							background-color: black;
 						}
+					}
+				}
+				.product-description {
+					margin: 32px 16px;
+					.title {
+						min-width: calc((6 * 72px) + (5 * 12px));
+						padding-top: 8px;
+						margin-right: 128px;
+						border-top: 1px white solid;
+						font-size: 1.8em;
+					}
+					.description {
+						padding-top: 4px;
+						margin-right: 128px;
+						min-width: calc((6 * 72px) + (5 * 12px));
+						font-size: 0.8em;
 					}
 				}
 			}
