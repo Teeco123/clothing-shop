@@ -73,7 +73,7 @@
 		height: 100%;
 		width: 0vw;
 		position: fixed;
-		z-index: 1;
+		z-index: 99999;
 		background-color: rgba(0, 0, 0, 0.95);
 		overflow-x: hidden;
 		transition: 0.5s;
@@ -257,7 +257,7 @@
 		}
 	}
 
-	@media only screen and (max-width: 768px) {
+	@media only screen and (max-width: 1024px) {
 		.header-desktop {
 			display: none;
 		}

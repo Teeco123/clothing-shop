@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { register } from 'swiper/element/bundle';
+
+	register();
+
 	export let data;
 
 	$: ({ products } = data);
@@ -33,9 +37,38 @@
 						{/each}
 					</div>
 				</div>
-				<button class="add-to-cart">Add to cart</button>
+				<div class="cart-wrapper">
+					<button class="add-to-cart">Add to cart</button>
+				</div>
 			</div>
-			<div class="product-images"></div>
+			<div class="product-images">
+				<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
+					<swiper-slide class="swiper-slide" lazy="true">
+						<enhanced:img
+							class="slide-img"
+							src="/static/GirlTheBlackLighthouseFront.webp"
+							alt="Girl Front"
+							loading="lazy"
+						/>
+					</swiper-slide>
+					<swiper-slide class="swiper-slide" lazy="true">
+						<enhanced:img
+							class="slide-img"
+							src="/static/GirlTheBlackLighthouseSide.webp"
+							alt="Girl Side"
+							loading="lazy"
+						/>
+					</swiper-slide>
+					<swiper-slide class="swiper-slide" lazy="true">
+						<enhanced:img
+							class="slide-img"
+							src="/static/GirlTheBlackLighthouseBack.webp"
+							alt="Girl Back"
+							loading="lazy"
+						/>
+					</swiper-slide>
+				</swiper-container>
+			</div>
 		{/each}
 	</div>
 </div>
@@ -44,22 +77,24 @@
 	.wrapper {
 		display: flex;
 		justify-content: center;
-		height: calc(100vh - 180px);
-
 		color: white;
 		.product-page {
 			display: flex;
 			flex-direction: row;
+			width: calc(100vw - 32px);
+			margin: 16px;
 			max-width: 1500px;
 			.product-info {
-				width: 55%;
-				margin: 32px;
+				width: 60%;
+				display: flex;
+				flex-direction: column;
+				margin: 32px 16px;
 				.product-name {
-					font-size: 3.5vw;
+					font-size: 2em;
 					margin: 16px;
 				}
 				.product-price {
-					font-size: 2vw;
+					font-size: 2em;
 					margin: 16px;
 				}
 				.sizes {
@@ -99,25 +134,99 @@
 						}
 					}
 				}
-				.add-to-cart {
+				.cart-wrapper {
 					margin: 16px;
-					border: 1px white solid;
-					height: 36px;
-					width: calc((6 * 72px) + (5 * 12px));
-					color: black;
-					background-color: white;
-					font-weight: bold;
-					font-size: 14px;
-					transition: 0.3s;
-					&:hover {
-						cursor: pointer;
-						color: white;
-						background-color: black;
+					.add-to-cart {
+						border: 1px white solid;
+						height: 36px;
+						width: calc((6 * 72px) + (5 * 12px));
+						color: black;
+						background-color: white;
+						font-weight: bold;
+						font-size: 14px;
+						transition: 0.3s;
+						&:hover {
+							cursor: pointer;
+							color: white;
+							background-color: black;
+						}
 					}
 				}
 			}
 			.product-images {
-				width: 45%;
+				width: 600px;
+				margin: 32px 16px;
+				overflow: hidden;
+				.swiper-container {
+					display: flex;
+					width: 90%;
+					.swiper-slide {
+						aspect-ratio: 414 / 572;
+						width: 100%;
+						.slide-img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+					}
+					swiper-slide::part(preloader) {
+						display: none;
+					}
+				}
+				swiper-container::part(button-prev) {
+					color: black;
+				}
+				swiper-container::part(button-next) {
+					color: black;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 1024px) {
+		.wrapper {
+			.product-page {
+				flex-direction: column-reverse;
+				align-items: center;
+				.product-info {
+					width: 100%;
+					margin: 16px 16px;
+					.product-name,
+					.product-price,
+					.sizes,
+					.cart-wrapper {
+						margin-left: 5%;
+					}
+				}
+				.product-images {
+					width: 100%;
+					margin: 16px 16px;
+				}
+			}
+		}
+	}
+	@media only screen and (max-width: 553px) {
+		.wrapper {
+			.product-page {
+				.product-info {
+					width: 100%;
+					.product-name {
+						font-size: 6vw;
+					}
+					.product-price {
+						font-size: 6vw;
+					}
+					.sizes {
+						.sizes-buttons {
+							grid-template-columns: repeat(3, 72px);
+						}
+					}
+					.cart-wrapper {
+						.add-to-cart {
+							width: calc((3 * 72px) + (2 * 12px));
+						}
+					}
+				}
 			}
 		}
 	}
