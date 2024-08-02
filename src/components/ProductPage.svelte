@@ -23,13 +23,25 @@
 					<div class="sizes-buttons">
 						{#each product.sizes as size}
 							<div class="size-button">
-								<input
-									type="radio"
-									id="size-input-{size.size}"
-									name="size"
-									value={size.size}
-									bind:group={selectedSize}
-								/>
+								{#if size.quantity == 0}
+									<input
+										type="radio"
+										id="size-input-{size.size}"
+										name="size"
+										value={size.size}
+										bind:group={selectedSize}
+										disabled
+									/>
+								{:else}
+									<input
+										type="radio"
+										id="size-input-{size.size}"
+										name="size"
+										value={size.size}
+										bind:group={selectedSize}
+									/>
+								{/if}
+
 								<label for="size-input-{size.size}">
 									{size.size}
 								</label>
@@ -141,6 +153,9 @@
 								height: 0;
 								opacity: 0;
 								margin: 0;
+							}
+							input[type='radio']:disabled + label {
+								border: 1px rgb(60, 60, 60) solid;
 							}
 							input[type='radio']:checked + label {
 								background-color: white;
