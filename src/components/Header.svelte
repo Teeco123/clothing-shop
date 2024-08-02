@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	let mobileNav: HTMLElement;
 
 	function OpenMenu() {
@@ -10,6 +12,10 @@
 		window.document.body.style.overflow = 'auto';
 		mobileNav.style.width = '0vw';
 	}
+
+	onMount(() => {
+		window.document.body.style.overflow = 'auto';
+	});
 </script>
 
 <div class="mobile-nav" bind:this={mobileNav}>
