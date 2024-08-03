@@ -6,16 +6,15 @@
 	export let data;
 
 	$: ({ products } = data);
+	$: ({ listPictures } = data);
 
 	let selectedSize = '';
-
-	$: console.log(selectedSize);
 </script>
 
 <div class="wrapper">
 	<div class="product-page">
-		{#each products as product}
-			<div class="product-info">
+		<div class="product-info">
+			{#each products as product}
 				<div class="product-name">{product.name}</div>
 				<div class="product-price">{product.price} ZŁ</div>
 				<div class="sizes">
@@ -67,36 +66,17 @@
 						- Fully lined<br />
 					</div>
 				</div>
-			</div>
-			<div class="product-images">
-				<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
+			{/each}
+		</div>
+		<div class="product-images">
+			<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
+				{#each listPictures as image}
 					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseFront.webp"
-							alt="Girl Front"
-							loading="lazy"
-						/>
+						<img class="slide-img" src={image} alt="Girl Front" loading="lazy" />
 					</swiper-slide>
-					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseSide.webp"
-							alt="Girl Side"
-							loading="lazy"
-						/>
-					</swiper-slide>
-					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseBack.webp"
-							alt="Girl Back"
-							loading="lazy"
-						/>
-					</swiper-slide>
-				</swiper-container>
-			</div>
-		{/each}
+				{/each}
+			</swiper-container>
+		</div>
 	</div>
 </div>
 
