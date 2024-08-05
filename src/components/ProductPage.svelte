@@ -69,7 +69,7 @@
 			{/each}
 		</div>
 		<div class="product-images">
-			<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
+			<swiper-container class="swiper-container" navigation="true" loop="true">
 				{#each listPictures as image}
 					<swiper-slide class="swiper-slide" lazy="true">
 						<img class="slide-img" src={image} alt="Girl Front" loading="lazy" />
