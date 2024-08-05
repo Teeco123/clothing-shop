@@ -73,6 +73,7 @@
 				{#each listPictures as image}
 					<swiper-slide class="swiper-slide" lazy="true">
 						<img class="slide-img" src={image} alt="Girl Front" loading="lazy" />
+						<div class="swiper-lazy-preloader"></div>
 					</swiper-slide>
 				{/each}
 			</swiper-container>
