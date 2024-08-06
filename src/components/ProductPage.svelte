@@ -13,62 +13,64 @@
 	let selectedSize = '';
 
 	function AddToCart() {
-		let currentCart = get(cart);
-		let productInfo: any;
-		let newCart: any;
+		if (selectedSize != '') {
+			let currentCart = get(cart);
+			let productInfo: any;
+			let newCart: any;
 
-		productInfo = products.map((item: any) => ({
-			product: item.name,
-			size: selectedSize,
-			quantity: 1
-		}));
+			productInfo = products.map((item: any) => ({
+				product: item.name,
+				size: selectedSize,
+				quantity: 1
+			}));
 
-		if (currentCart.length != 0) {
-			let productExists = false;
-			let elementQuantity = 0;
-			let elementIndex = 0;
+			if (currentCart.length != 0) {
+				let productExists = false;
+				let elementQuantity = 0;
+				let elementIndex = 0;
 
-			currentCart.forEach((element, index) => {
-				console.log('element', element);
-				console.log('productInfo', productInfo[0]);
+				currentCart.forEach((element, index) => {
+					console.log('element', element);
+					console.log('productInfo', productInfo[0]);
 
-				if (
-					productInfo[0]['product'] == element['product'] &&
-					productInfo[0]['size'] == element['size']
-				) {
-					console.log('productExists');
+					if (
+						productInfo[0]['product'] == element['product'] &&
+						productInfo[0]['size'] == element['size']
+					) {
+						console.log('productExists');
 
-					productExists = true;
-					elementQuantity = element['quantity'];
-					elementIndex = index;
+						productExists = true;
+						elementQuantity = element['quantity'];
+						elementIndex = index;
 
-					return;
+						return;
+					}
+				});
+
+				if (productExists) {
+					let newQuantity = elementQuantity;
+					newQuantity++;
+					productInfo[0].quantity = newQuantity;
+
+					const target = currentCart[elementIndex];
+
+					newCart = currentCart;
+					Object.assign(target, productInfo[0]);
+
+					cart.set(newCart);
+				} else {
+					newCart = currentCart.concat(productInfo);
+					cart.set(newCart);
 				}
-			});
-
-			if (productExists) {
-				let newQuantity = elementQuantity;
-				newQuantity++;
-				productInfo[0].quantity = newQuantity;
-
-				const target = currentCart[elementIndex];
-
-				newCart = currentCart;
-				Object.assign(target, productInfo[0]);
-
-				cart.set(newCart);
 			} else {
 				newCart = currentCart.concat(productInfo);
 				cart.set(newCart);
 			}
-		} else {
-			newCart = currentCart.concat(productInfo);
-			cart.set(newCart);
-		}
 
-		console.log(currentCart);
-		console.log(productInfo);
-		console.log(newCart);
+			console.log(currentCart);
+			console.log(productInfo);
+			console.log(newCart);
+		}
 	}
 </script>
 
