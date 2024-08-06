@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { register } from 'swiper/element/bundle';
+	import { get } from 'svelte/store';
+	import { cart } from '../stores/cart';
 
 	register();
 
@@ -9,6 +11,62 @@
 	$: ({ listPictures } = data);
 
 	let selectedSize = '';
+
+	function AddToCart() {
+		let currentCart = get(cart);
+		let productInfo: any;
+		let newCart: any;
+
+		productInfo = products.map((item: any) => ({
+			product: item.name,
+			size: selectedSize,
+			quantity: 1
+		}));
+
+		if (currentCart.length != 0) {
+			let productExists = false;
+			let elementQuantity = 0;
+			let elementIndex = 0;
+
+			currentCart.forEach((element, index) => {
+				console.log('element', element);
+				console.log('productInfo', productInfo[0]);
+
+				if (
+					productInfo[0]['product'] == element['product'] &&
+					productInfo[0]['size'] == element['size']
+				) {
+					console.log('productExists');
+
+					productExists = true;
+					elementQuantity = element['quantity'];
+					elementIndex = index;
+
+					return;
+				}
+			});
+
+			if (productExists) {
+				let newQuantity = elementQuantity;
+				newQuantity++;
+				productInfo[0].quantity = newQuantity;
+
+				const target = currentCart[elementIndex];
+
+				newCart = currentCart;
+				Object.assign(target, productInfo[0]);
+
+				cart.set(newCart);
+			}
+		} else {
+			newCart = currentCart.concat(productInfo);
+			cart.set(newCart);
+		}
+
+		console.log(currentCart);
+		console.log(productInfo);
+		console.log(newCart);
+	}
 </script>
 
 <div class="wrapper">
@@ -49,7 +107,7 @@
 					</div>
 				</div>
 				<div class="cart-wrapper">
-					<button class="add-to-cart">Add to cart</button>
+					<button class="add-to-cart" on:click={AddToCart}>Add to cart</button>
 				</div>
 				<div class="product-description">
 					<div class="title">Product description</div>
