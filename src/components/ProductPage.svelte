@@ -57,6 +57,9 @@
 				Object.assign(target, productInfo[0]);
 
 				cart.set(newCart);
+			} else {
+				newCart = currentCart.concat(productInfo);
+				cart.set(newCart);
 			}
 		} else {
 			newCart = currentCart.concat(productInfo);
