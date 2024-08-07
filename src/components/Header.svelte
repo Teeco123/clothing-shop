@@ -53,9 +53,9 @@
 		<div data-aos="fade-in" class="profile">
 			<enhanced:img class="img" src="/static/profile.png" alt="profile" />
 		</div>
-		<div data-aos="fade-in" class="bag">
+		<a href="/cart" data-aos="fade-in" class="bag">
 			<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
-		</div>
+		</a>
 	</div>
 </div>
 <div class="header-mobile">
@@ -66,9 +66,9 @@
 	</button>
 	<a href="/" data-aos="fade-in" class="logo">GOWNO</a>
 	<div class="menu">
-		<div data-aos="fade-in" class="bag">
+		<a href="/cart" data-aos="fade-in" class="bag">
 			<enhanced:img class="img" src="/static/shopping_bag.png" alt="shopping bag" />
-		</div>
+		</a>
 	</div>
 </div>
 
