@@ -5,6 +5,7 @@
 	import type { PageData } from './$types';
 	import Header from '../../components/Header.svelte';
 	import Footer from '../../components/Footer.svelte';
+	import Cart from '../../components/Cart.svelte';
 
 	export let data: PageData;
 
@@ -16,8 +17,9 @@
 </script>
 
 <body>
-  <Header/>
-  <Footer/>
+	<Header />
+	<Cart />
+	<Footer />
 </body>
 
 <style lang="scss">
