@@ -2,6 +2,7 @@
 	import { register } from 'swiper/element/bundle';
 	import { get } from 'svelte/store';
 	import { cart } from '../stores/cart';
+	import toast, { Toaster } from 'svelte-french-toast';
 
 	register();
 
@@ -58,14 +59,23 @@
 					Object.assign(target, productInfo[0]);
 
 					cart.set(newCart);
+          toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })
 				} else {
 					newCart = currentCart.concat(productInfo);
 					cart.set(newCart);
-				}
+          toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })				
+        }
 			} else {
 				newCart = currentCart.concat(productInfo);
 				cart.set(newCart);
-			}
+        toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })			
+      }
 
 			console.log(currentCart);
 			console.log(productInfo);
@@ -74,6 +84,7 @@
 	}
 </script>
 
+<Toaster/>
 <div class="wrapper">
 	<div class="product-page">
 		<div class="product-info">
