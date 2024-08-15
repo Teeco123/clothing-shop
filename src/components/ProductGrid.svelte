@@ -13,7 +13,14 @@
 			data-aos-once="true"
 			class="item"
 		>
-			<div class="item-img"><div class="fake-img" /></div>
+			<div class="item-img">
+				<img
+					class="fake-img"
+					src="https://xgsegeuhgevlcrridgyk.supabase.co/storage/v1/object/public/product-photos/{product.name}/{product.name}0.webp"
+					alt="clothing"
+					loading="lazy"
+				/>
+			</div>
 			<div class="item-info">
 				<div class="item-name">{product.name}</div>
 				{#if product.totalQuantity > 0}

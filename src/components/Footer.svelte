@@ -104,26 +104,30 @@
 	}
 
 	@media only screen and (max-width: 768px) {
-		.newsletter {
-			.newsletter-text {
-				font-size: 2.5vw;
-			}
-			.newsletter-form {
-				input {
-					width: 40vw;
+		.footer {
+			.newsletter {
+				.newsletter-text {
+					font-size: 2.5vw;
+				}
+				.newsletter-form {
+					input {
+						width: 40vw;
+					}
 				}
 			}
 		}
 	}
 
 	@media only screen and (max-width: 425px) {
-		.newsletter {
-			.newsletter-text {
-				font-size: 3.5vw;
-			}
-			.newsletter-form {
-				input {
-					width: 50vw;
+		.footer {
+			.newsletter {
+				.newsletter-text {
+					font-size: 3.5vw;
+				}
+				.newsletter-form {
+					input {
+						width: 50vw;
+					}
 				}
 			}
 		}

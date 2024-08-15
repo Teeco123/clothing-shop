@@ -1,21 +1,94 @@
 <script lang="ts">
 	import { register } from 'swiper/element/bundle';
+	import { get } from 'svelte/store';
+	import { cart } from '../stores/cart';
+	import toast, { Toaster } from 'svelte-french-toast';
 
 	register();
 
 	export let data;
 
 	$: ({ products } = data);
+	$: ({ listPictures } = data);
 
 	let selectedSize = '';
 
-	$: console.log(selectedSize);
+	function AddToCart() {
+		if (selectedSize != '') {
+			let currentCart = get(cart);
+			let productInfo: any;
+			let newCart: any;
+
+			productInfo = products.map((item: any) => ({
+				product: item.name,
+				size: selectedSize,
+				quantity: 1
+			}));
+
+			if (currentCart.length != 0) {
+				let productExists = false;
+				let elementQuantity = 0;
+				let elementIndex = 0;
+
+				currentCart.forEach((element, index) => {
+					console.log('element', element);
+					console.log('productInfo', productInfo[0]);
+
+					if (
+						productInfo[0]['product'] == element['product'] &&
+						productInfo[0]['size'] == element['size']
+					) {
+						console.log('productExists');
+
+						productExists = true;
+						elementQuantity = element['quantity'];
+						elementIndex = index;
+
+						return;
+					}
+				});
+
+				if (productExists) {
+					let newQuantity = elementQuantity;
+					newQuantity++;
+					productInfo[0].quantity = newQuantity;
+
+					const target = currentCart[elementIndex];
+
+					newCart = currentCart;
+					Object.assign(target, productInfo[0]);
+
+					cart.set(newCart);
+          toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })
+				} else {
+					newCart = currentCart.concat(productInfo);
+					cart.set(newCart);
+          toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })				
+        }
+			} else {
+				newCart = currentCart.concat(productInfo);
+				cart.set(newCart);
+        toast.success("Product added to the cart",{
+            style:"background-color: black; color:white;"
+          })			
+      }
+
+			console.log(currentCart);
+			console.log(productInfo);
+			console.log(newCart);
+		}
+	}
 </script>
 
+<Toaster/>
 <div class="wrapper">
 	<div class="product-page">
-		{#each products as product}
-			<div class="product-info">
+		<div class="product-info">
+			{#each products as product}
 				<div class="product-name">{product.name}</div>
 				<div class="product-price">{product.price} ZŁ</div>
 				<div class="sizes">
@@ -50,7 +123,7 @@
 					</div>
 				</div>
 				<div class="cart-wrapper">
-					<button class="add-to-cart">Add to cart</button>
+					<button class="add-to-cart" on:click={AddToCart}>Add to cart</button>
 				</div>
 				<div class="product-description">
 					<div class="title">Product description</div>
@@ -67,36 +140,18 @@
 						- Fully lined<br />
 					</div>
 				</div>
-			</div>
-			<div class="product-images">
-				<swiper-container class="swiper-container" navigation="true" loop="true" css-mode="true">
+			{/each}
+		</div>
+		<div class="product-images">
+			<swiper-container class="swiper-container" navigation="true" loop="true">
+				{#each listPictures as image}
 					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseFront.webp"
-							alt="Girl Front"
-							loading="lazy"
-						/>
+						<img class="slide-img" src={image} alt="Girl Front" loading="lazy" />
+						<div class="swiper-lazy-preloader"></div>
 					</swiper-slide>
-					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseSide.webp"
-							alt="Girl Side"
-							loading="lazy"
-						/>
-					</swiper-slide>
-					<swiper-slide class="swiper-slide" lazy="true">
-						<enhanced:img
-							class="slide-img"
-							src="/static/GirlTheBlackLighthouseBack.webp"
-							alt="Girl Back"
-							loading="lazy"
-						/>
-					</swiper-slide>
-				</swiper-container>
-			</div>
-		{/each}
+				{/each}
+			</swiper-container>
+		</div>
 	</div>
 </div>
 
